@@ -6,53 +6,167 @@
   <title>My projects</title>
 
   <style>
+    :root{
+      --bg: #f6f7fb;
+      --text: #333;
+      --brand-1: #2a4d69; /* deep blue */
+      --brand-2: #4b86b4; /* accent */
+      --card: #ffffff;
+      --shadow: 0 8px 20px rgba(0,0,0,0.12);
+      --radius: 16px;
+    }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color: #333;
-      background: #f6f7fb;
+      color: var(--text);
+      background: var(--bg);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
+    /* --- Page wrapper --- */
     main {
       flex: 1;
-      padding: 4rem;
-      max-width: 800px;
-      margin: auto;
+      padding: 4rem 1.25rem;
+      max-width: 960px;
+      margin: 0 auto;
       text-align: center;
     }
 
-    main h1 {
-      font-size: 2.5rem;
-      color: #2a4d69;
+    /* --- Top image / logo --- */
+    .top-image {
       margin-bottom: 1.5rem;
     }
-
-    main p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
+    .top-image img{
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      background: var(--card);
+      padding: 12px;
     }
 
+    /* --- Headings & copy --- */
+    h1 {
+      font-size: 2.5rem;
+      color: var(--brand-1);
+      margin: 0.75rem 0 1rem;
+    }
+    .intro {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* --- Back button (consistent with home) --- */
     .back-btn {
       display: inline-block;
-      background: #4b86b4;
+      background: var(--brand-2);
       color: #fff;
       padding: 0.8rem 1.6rem;
       font-size: 1rem;
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.06s;
     }
-    .back-btn:hover {
-      background: #2a4d69;
+    .back-btn:hover { background: var(--brand-1); }
+    .back-btn:active { transform: translateY(1px); }
+
+    /* --- Accordion / dropdowns --- */
+    .projects {
+      margin-top: 2.5rem;
+      text-align: left;  /* content aligned left, title still centered */
     }
 
+    details.project {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 1rem 0;
+      padding: 0; /* handled by inner sections */
+      overflow: hidden;
+    }
+
+    /* clickable summary row */
+    details.project > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.25rem 1.25rem 1.25rem 3.25rem;
+      position: relative;
+      font-weight: 600;
+      color: var(--brand-1);
+      outline: none;
+      user-select: none;
+    }
+
+    /* chevron indicator */
+    details.project > summary::before {
+      content: "";
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+      width: 10px;
+      height: 10px;
+      border-right: 3px solid var(--brand-2);
+      border-bottom: 3px solid var(--brand-2);
+      transition: transform 0.25s ease;
+      /* make a > shape via borders */
+      transform-origin: 50% 50%;
+      rotate: 45deg;
+    }
+    details.project[open] > summary::before {
+      transform: translateY(-50%) rotate(225deg);
+    }
+
+    /* hover/focus feedback */
+    details.project > summary:hover {
+      background: rgba(75,134,180,0.06);
+    }
+    details.project > summary:focus-visible {
+      outline: 3px solid rgba(75,134,180,0.35);
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+
+    /* content area */
+    .project-content {
+      padding: 0 1.25rem 1.25rem 1.25rem;
+      border-top: 1px solid #e9edf3;
+      animation: drop 220ms ease;
+    }
+    @keyframes drop {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .project-desc {
+      margin: 1rem 0 1.25rem;
+      line-height: 1.7;
+    }
+
+    /* call-to-action link styled as button */
+    .repo-link {
+      display: inline-block;
+      background: var(--brand-2);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.6rem 1.1rem;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: background 0.25s, transform 0.06s;
+    }
+    .repo-link:hover { background: var(--brand-1); }
+    .repo-link:active { transform: translateY(1px); }
+
+    /* --- Footer --- */
     footer {
-      background: #2a4d69;
+      background: var(--brand-1);
       color: white;
       padding: 1.5rem;
       text-align: center;
@@ -64,33 +178,50 @@
       font-weight: 500;
       transition: color 0.3s;
     }
-    footer a:hover {
-      color: #e4e4e4;
-    }
+    footer a:hover { color: #e4e4e4; }
 
     @media (max-width: 768px) {
-      main { padding: 2rem; }
+      main { padding: 2rem 1rem; }
+      h1 { font-size: 2.1rem; }
     }
   </style>
 </head>
 
 <body>
   <main>
-    <h1>More About Me</h1>
-    <p>
-      Here you can add more details about your projects, experience,
-      or anything else you’d like visitors to know.
+    <!-- Top image (replace src with your GitHub logo path) -->
+    <div class="top-image" aria-hidden="true">
+      <!-- Example: put your file at /images/github-logo.png or any image you like -->
+      <img src="images/github-logo.png" alt="GitHub logo">
+    </div>
+
+    <h1>My Projects</h1>
+    <p class="intro">
+      A selection of things I’ve built and explored. Open a section to read a short description,
+      then jump to the repository.
     </p>
 
-    <a class="back-btn" href="https://vetledrage.github.io/website.html">
-      ⬅ Back to Home
-    </a>
-  </main>
+    <!-- Back to home -->
+    <p>
+      <a class="back-btn" href="https://vetledrage.github.io/website.html">⬅ Back to Home</a>
+    </p>
 
-  <footer>
-    <a href="https://www.linkedin.com/in/vetle-drage-51249621b/">LinkedIn</a>
-    <a href="https://github.com/Vetledrage">GitHub</a>
-    <a href="CV.pdf" download="CV.pdf">Download my CV</a>
-  </footer>
-</body>
-</html>
+    <!-- Accordion list -->
+    <section class="projects" aria-label="Project list">
+
+      <details class="project">
+        <summary>Project One — Data Visualizer</summary>
+        <div class="project-content">
+          <p class="project-desc">
+            Dummy text: A lightweight tool for exploring datasets directly in the browser.
+            Features CSV/JSON import, filtering, and quick charts.
+          </p>
+          <a class="repo-link" href="https://github.com/your-user/project-one" target="_blank" rel="noopener">View Repository</a>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>Project Two — Portfolio Generator</summary>
+        <div class="project-content">
+          <p class="project-desc">
+            Dummy text: Generates a re
