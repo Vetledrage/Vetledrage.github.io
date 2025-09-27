@@ -9,8 +9,8 @@
     :root{
       --bg: #f6f7fb;
       --text: #333;
-      --brand-1: #2a4d69; /* deep blue */
-      --brand-2: #4b86b4; /* accent */
+      --brand-1: #2a4d69; 
+      --brand-2: #4b86b4; 
       --card: #ffffff;
       --shadow: 0 8px 20px rgba(0,0,0,0.12);
       --radius: 16px;
@@ -27,7 +27,6 @@
       min-height: 100vh;
     }
 
-    /* --- Page wrapper --- */
     main {
       flex: 1;
       padding: 4rem 1.25rem;
@@ -36,7 +35,6 @@
       text-align: center;
     }
 
-    /* --- Top image / logo --- */
     .top-image {
       margin-bottom: 1.5rem;
     }
@@ -50,7 +48,6 @@
       padding: 12px;
     }
 
-    /* --- Headings & copy --- */
     h1 {
       font-size: 2.5rem;
       color: var(--brand-1);
@@ -63,7 +60,6 @@
       margin: 0 auto 2.5rem;
     }
 
-    /* --- Back button (consistent with home) --- */
     .back-btn {
       display: inline-block;
       background: var(--brand-2);
@@ -77,10 +73,9 @@
     .back-btn:hover { background: var(--brand-1); }
     .back-btn:active { transform: translateY(1px); }
 
-    /* --- Accordion / dropdowns --- */
     .projects {
       margin-top: 2.5rem;
-      text-align: left;  /* content aligned left, title still centered */
+      text-align: left; 
     }
 
     details.project {
@@ -88,11 +83,11 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       margin: 1rem 0;
-      padding: 0; /* handled by inner sections */
+      padding: 0; 
       overflow: hidden;
     }
 
-    /* clickable summary row */
+   
     details.project > summary {
       list-style: none;
       cursor: pointer;
@@ -104,7 +99,6 @@
       user-select: none;
     }
 
-    /* chevron indicator */
     details.project > summary::before {
       content: "";
       position: absolute;
@@ -116,7 +110,6 @@
       border-right: 3px solid var(--brand-2);
       border-bottom: 3px solid var(--brand-2);
       transition: transform 0.25s ease;
-      /* make a > shape via borders */
       transform-origin: 50% 50%;
       rotate: 45deg;
     }
@@ -124,7 +117,6 @@
       transform: translateY(-50%) rotate(225deg);
     }
 
-    /* hover/focus feedback */
     details.project > summary:hover {
       background: rgba(75,134,180,0.06);
     }
@@ -134,7 +126,6 @@
       border-radius: 8px;
     }
 
-    /* content area */
     .project-content {
       padding: 0 1.25rem 1.25rem 1.25rem;
       border-top: 1px solid #e9edf3;
@@ -150,7 +141,6 @@
       line-height: 1.7;
     }
 
-    /* call-to-action link styled as button */
     .repo-link {
       display: inline-block;
       background: var(--brand-2);
@@ -164,7 +154,6 @@
     .repo-link:hover { background: var(--brand-1); }
     .repo-link:active { transform: translateY(1px); }
 
-    /* --- Footer --- */
     footer {
       background: var(--brand-1);
       color: white;
@@ -189,10 +178,8 @@
 
 <body>
   <main>
-    <!-- Top image (replace src with your GitHub logo path) -->
     <div class="top-image" aria-hidden="true">
-      <!-- Example: put your file at /images/github-logo.png or any image you like -->
-      <img src="images/github-logo.png" alt="GitHub logo">
+      <img src="github.svg" alt="GitHub logo">
     </div>
 
     <h1>My Projects</h1>
@@ -201,42 +188,43 @@
       then jump to the repository.
     </p>
 
-    <!-- Back to home -->
     <p>
       <a class="back-btn" href="https://vetledrage.github.io/website.html">⬅ Back to Home</a>
     </p>
 
-    <!-- Accordion list -->
     <section class="projects" aria-label="Project list">
 
       <details class="project">
-        <summary>Project One — Data Visualizer</summary>
+        <summary>Group project IN2000</summary>
         <div class="project-content">
           <p class="project-desc">
-            Dummy text: A lightweight tool for exploring datasets directly in the browser.
-            Features CSV/JSON import, filtering, and quick charts.
+            Group project in the subject IN2000 at the University of Oslo. 
+            The project was a fullstack experience where we created a weather app 
+            for children using Kotlin, Android Studio (iguana) and Gradle. 
+            I worked with multiple members using agile methods to achive the best possible product.
           </p>
-          <a class="repo-link" href="https://github.com/your-user/project-one" target="_blank" rel="noopener">View Repository</a>
+          <a class="repo-link" href="https://github.com/Vetledrage/WeatherApp" target="_blank" rel="noopener">View Repository</a>
         </div>
       </details>
 
       <details class="project">
-        <summary>Project Two — Portfolio Generator</summary>
+        <summary>Easy REST api using dotnet</summary>
         <div class="project-content">
           <p class="project-desc">
-            Dummy text: Generates a responsive portfolio site from markdown files.
-            Easy theming, fast builds, and GitHub Pages friendly.
+            This is a project where i created a very simple REST API in dotnet, you can run this project with swagger 
+            for a better user experience. This is a part of my learning development with the dotnet framework.  
           </p>
-          <a class="repo-link" href="https://github.com/your-user/project-two" target="_blank" rel="noopener">View Repository</a>
+          <a class="repo-link" href="https://github.com/Vetledrage/dotnetAPI" target="_blank" rel="noopener">View Repository</a>
         </div>
       </details>
 
       <details class="project">
-        <summary>Project Three — API Playground</summary>
+        <summary>Spring boot API call with Sparebank1</summary>
         <div class="project-content">
           <p class="project-desc">
-            Dummy text: A playground for testing REST endpoints with saved requests,
-            environment variables, and shareable collections.
+            Sparebank 1 has an open API fucntion where you can get your own bank data using API calls from their servers. 
+            I have therefore made a project where i use JAVA and Spring Boot to make API call using Curl and HTML to get my own data.
+            This is a part of my learning development in Spring boot and generally the world of API call and data collecting and management.
           </p>
           <a class="repo-link" href="https://github.com/your-user/project-three" target="_blank" rel="noopener">View Repository</a>
         </div>
