@@ -30,16 +30,14 @@
       flex-direction: column;
     }
 
-    /* Layout container */
     main{
       flex: 1;
       padding: 4rem 1.25rem;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       width: 100%;
     }
 
-    /* Title row */
     .header{
       text-align: center;
       margin-bottom: 2rem;
@@ -52,24 +50,15 @@
       letter-spacing: -0.5px;
     }
 
-    .subtitle{
-      margin: 0 auto;
-      max-width: 800px;
-      font-size: 1.15rem;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
-
-    /* Two column section */
+    /* New 3-column layout */
     .content{
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.2fr 0.9fr 0.7fr;
       gap: 2rem;
       align-items: start;
       margin-top: 2.5rem;
     }
 
-    /* Text box (big editable section) */
     .textbox{
       background: var(--card);
       border-radius: var(--radius);
@@ -91,16 +80,23 @@
       line-height: 1.75;
     }
 
-    .textbox p:last-child{
-      margin-bottom: 0;
+    /* Subjects list styles */
+    .subjects{
+      padding: 2rem;
     }
 
-    /* Image column */
-    .images{
-      display: grid;
-      gap: 1.25rem;
+    .subjects ul{
+      margin: 0;
+      padding-left: 1.2rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
     }
 
+    .subjects li{
+      margin-bottom: 0.4rem;
+    }
+
+    /* Image card */
     .img-card{
       background: var(--card);
       border-radius: var(--radius);
@@ -111,12 +107,11 @@
 
     .img-card img{
       width: 100%;
-      height: 280px;
+      height: 520px;
       object-fit: cover;
       display: block;
     }
 
-    /* Buttons */
     .actions{
       margin-top: 2rem;
       text-align: center;
@@ -138,7 +133,6 @@
     .btn:hover{ background: var(--brand-1); }
     .btn:active{ transform: translateY(1px); }
 
-    /* Footer */
     footer{
       background: var(--brand-1);
       color: white;
@@ -155,12 +149,12 @@
     footer a:hover{ color: #e4e4e4; }
 
     /* Responsive */
-    @media (max-width: 900px){
+    @media (max-width: 1050px){
       .content{
         grid-template-columns: 1fr;
       }
       .img-card img{
-        height: 240px;
+        height: 320px;
       }
     }
 
@@ -168,6 +162,7 @@
       h1{ font-size: 2.1rem; }
       .textbox{ padding: 1.5rem; }
       .textbox p{ font-size: 1.05rem; }
+      .subjects ul{ font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -179,52 +174,66 @@
     </div>
 
     <section class="content">
-      <!-- BIG TEXT AREA -->
+      <!-- TEXT COLUMN 1 -->
       <div class="textbox">
-        <h2>About me</h2>
+        <h2>Academics</h2>
         <p>
-            I am a motivated 23-year-old from Kongsberg, Norway. I recently completed a Bachelors degree in Informatics: Programming and Systems Architecture. 
-            The program included 120 credits of core subjects focused on object-oriented programming, 
-            algorithms, data management, and system security. 60 credits where used for subjects of the students own choosing.
-        </p>
-        <p>
-            Throughout my studies, I found myself most motivated by theoretical challenges and problem-solving. This led me to explore algorithms in greater depth through Algorithms: Design and Efficiency, 
-            where we worked extensively with algorithm design and the theory behind efficient solutions. 
-            I also broadened my academic background by taking courses outside my department, including Calculus and Astronomy as an extra subject. 
+          I am a motivated 23-year-old from Kongsberg, Norway. I recently completed a Bachelors degree in Informatics: Programming and Systems Architecture.
+          The program included 120 credits of core subjects focused on object-oriented programming,
+          algorithms, data management, and system security. 60 credits where used for subjects of the students own choosing.
         </p>
         <p>
-            One subject that especially caught my interest was Semantic Technologies. 
-            Although it was a different type of technology than I was used to, I found it both interesting and enjoyable to learn. 
-            I also chose Problem Solving with High-Level Languages, which suited my preferred working style and allowed me to approach 
-            challenges creatively. I enjoy being given a problem and having the freedom to solve it in my own way.
+          Throughout my studies, I found myself most motivated by theoretical challenges and problem-solving. This led me to explore algorithms in greater depth through Algorithms: Design and Efficiency,
+          where we worked extensively with algorithm design and the theory behind efficient solutions.
+          I also broadened my academic background by taking courses outside my department, including Calculus and Astronomy as an extra subject.
         </p>
-            <p>
-            Finally, I participated in a group project where a fellow student and I were tasked with developing a new TypeScript 
-            solution for a drone simulation. The project was divided into four parts, and while it was challenging, 
-            we maintained strong teamwork and motivation throughout.
+        <p>
+          One subject that especially caught my interest was Semantic Technologies.
+          Although it was a different type of technology than I was used to, I found it both interesting and enjoyable to learn.
+          I also chose Problem Solving with High-Level Languages, which suited my preferred working style and allowed me to approach
+          challenges creatively. I enjoy being given a problem and having the freedom to solve it in my own way.
         </p>
-  
+        <p>
+          Finally, I participated in a group project where a fellow student and I were tasked with developing a new TypeScript
+          solution for a drone simulation. The project was divided into four parts, and while it was challenging,
+          we maintained strong teamwork and motivation throughout.
+        </p>
       </div>
 
-      <!-- TWO PICTURES -->
-      <div class="images">
-        <div class="img-card">
-          <img src="images/picture1.jpg" alt="Picture 1">
-        </div>
+      <!-- TEXT COLUMN 2 (SUBJECTS) -->
+      <div class="textbox subjects">
+        <h2>Subjects I Chose</h2>
 
-        <div class="img-card">
-          <img src="images/picture2.jpg" alt="Picture 2">
-        </div>
+        <!-- Replace these with your real subjects -->
+        <ul>
+          <li>Algorithms: Design and Efficiency</li>
+          <li>Semantic Technologies</li>
+          <li>Problem Solving with High-Level Languages</li>
+          <li>Calculus</li>
+          <li>Astronomy</li>
+          <li>Object-Oriented Programming</li>
+          <li>Data Management</li>
+          <li>System Security</li>
+          <li>TypeScript Project (Drone Simulation)</li>
+        </ul>
+
+        <!-- Optional small note -->
+        <p style="margin-top: 1.2rem; opacity: 0.9;">
+          (You can list all 60 credits worth of elective subjects here.)
+        </p>
+      </div>
+
+      <!-- SINGLE PICTURE -->
+      <div class="img-card">
+        <img src="images/picture1.jpg" alt="Picture">
       </div>
     </section>
 
-    <!-- GO BACK BUTTON -->
     <div class="actions">
       <a class="btn" href="https://vetledrage.github.io">⬅ Go back to main page</a>
     </div>
   </main>
 
-  <!-- Same footer -->
   <footer>
     <a href="https://www.linkedin.com/in/vetle-drage-51249621b/">LinkedIn</a>
     <a href="https://github.com/Vetledrage">GitHub</a>
