@@ -49,10 +49,10 @@
       letter-spacing: -0.5px;
     }
 
-    /* OLD 3-column layout:
+    /* 3-column layout:
        1) Academics
-       2) Subjects
-       3) ONE picture
+       2) Teamwork text
+       3) Right column (image + subject list stacked)
     */
     .content{
       display: grid;
@@ -83,30 +83,37 @@
       line-height: 1.75;
     }
 
-    /* Subjects list styles */
-    .subjects ul{
+    /* Right column stacks items */
+    .right-column{
+      display: grid;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    /* Subject list styles */
+    .subjects-list ul{
       margin: 0;
       padding-left: 1.2rem;
       line-height: 1.8;
       font-size: 1.1rem;
     }
 
-    .subjects li{
+    .subjects-list li{
       margin-bottom: 0.4rem;
     }
 
-    /* ✅ Keep the improved clickable subject link style */
-    .subjects a{
+    /* clickable links */
+    .subjects-list a{
       color: var(--brand-2);
       text-decoration: none;
       font-weight: 600;
     }
-    .subjects a:hover{
+    .subjects-list a:hover{
       color: var(--brand-1);
       text-decoration: underline;
     }
 
-    /* Image card (same crop style as before) */
+    /* Image card (crop style) */
     .img-card{
       background: var(--card);
       border-radius: var(--radius);
@@ -172,7 +179,7 @@
       h1{ font-size: 2.1rem; }
       .textbox{ padding: 1.5rem; }
       .textbox p{ font-size: 1.05rem; }
-      .subjects ul{ font-size: 1.05rem; }
+      .subjects-list ul{ font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -184,7 +191,7 @@
     </div>
 
     <section class="content">
-      <!-- TEXT COLUMN 1 -->
+      <!-- COLUMN 1: Academics -->
       <div class="textbox">
         <h2>Academics</h2>
         <p>
@@ -210,53 +217,52 @@
         </p>
       </div>
 
-      <!-- TEXT COLUMN 2 (SUBJECTS) -->
-      <div class="textbox subjects">
+      <!-- COLUMN 2: Teamwork text -->
+      <div class="textbox">
         <h2>Teamwork and group project</h2>
-  <p>
-    Under my studies we had a bigger group project in collaboration with Oslo Metrologisk institutt.
-    The project gave us 4 cases where we chose to make a weather-app for younger users, using data from Metrologisk institutt by using API-calls. 
-    The case was to make an app that took the attention of younger audience and by doing that informing them of weather dangers. 
-    </p>
-    <p>
-    The examination was divided into a report, product and completing team building-exercises. We made a great product that had a good foundation
-    in the back-end with clean data-manegement and a fun and creative frontend with good design choices and fun UI for the young audience. 
-    The app was made in android studio Iguana, where we used Kotlin to code. The app can be found under github-projects.
-  </p>
-  <p>
-    Working together in a team was motivating, fun and challenging. I learned that there need to be a good balance of opinions
-    to keep everyone invested and motivated, but also to get the best result possible. We learned new agile methods and samrt tips on
-    how to work together smart and effective. At the end i was left with a great experience and a greater understanding of what it takes
-    to succeed in a team. 
-  </p>
-
-
-  <hr style="border: none; border-top: 1px solid #e9edf3; margin: 1.5rem 0;">
-
+        <p>
+          Under my studies we had a bigger group project in collaboration with Oslo Metrologisk institutt.
+          The project gave us 4 cases where we chose to make a weather-app for younger users, using data from Metrologisk institutt by using API-calls.
+          The case was to make an app that took the attention of younger audience and by doing that informing them of weather dangers.
+        </p>
+        <p>
+          The examination was divided into a report, product and completing team building-exercises. We made a great product that had a good foundation
+          in the back-end with clean data-manegement and a fun and creative frontend with good design choices and fun UI for the young audience.
+          The app was made in android studio Iguana, where we used Kotlin to code. The app can be found under github-projects.
+        </p>
+        <p>
+          Working together in a team was motivating, fun and challenging. I learned that there need to be a good balance of opinions
+          to keep everyone invested and motivated, but also to get the best result possible. We learned new agile methods and samrt tips on
+          how to work together smart and effective. At the end i was left with a great experience and a greater understanding of what it takes
+          to succeed in a team.
+        </p>
       </div>
 
-      <!-- ONE PICTURE -->
-      <div class="img-card">
-        <img src="skole.PNG" alt="Picture">
+      <!-- COLUMN 3: Right column (image + subjects list) -->
+      <div class="right-column">
+        <div class="img-card">
+          <img src="skole.PNG" alt="Picture">
+        </div>
+
+        <div class="textbox subjects-list">
+          <h2>Subjects I Chose</h2>
+          <ul>
+            <li><a href="https://www.uio.no/studier/emner/matnat/ifi/IN3130/" target="_blank" rel="noopener">Algorithms: Design and Efficiency</a></li>
+            <li>Semantic Technologies</li>
+            <li>Problem Solving with High-Level Languages</li>
+            <li>Calculus</li>
+            <li>Astronomy</li>
+            <li>Object-Oriented Programming</li>
+            <li>Data Management</li>
+            <li>System Security</li>
+            <li>TypeScript Project (Drone Simulation)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <div class="actions">
       <a class="btn" href="https://vetledrage.github.io">⬅ Go back to main page</a>
-
-      <h2>Subjects I Chose</h2>
-
-      <ul>
-        <li><a href="https://www.uio.no/studier/emner/matnat/ifi/IN3130/" target="_blank" rel="noopener">Algorithms: Design and Efficiency</a></li>
-        <li>Semantic Technologies</li>
-        <li>Problem Solving with High-Level Languages</li>
-        <li>Calculus</li>
-        <li>Astronomy</li>
-        <li>Object-Oriented Programming</li>
-        <li>Data Management</li>
-        <li>System Security</li>
-        <li>TypeScript Project (Drone Simulation)</li>
-      </ul>
     </div>
   </main>
 
@@ -267,4 +273,3 @@
   </footer>
 </body>
 </html>
-
