@@ -17,7 +17,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { overflow-y: scroll; } /* prevents width jump */
 
     body{
@@ -50,15 +49,14 @@
       letter-spacing: -0.5px;
     }
 
-    /* 4-column layout:
+    /* OLD 3-column layout:
        1) Academics
        2) Subjects
-       3) Image 1
-       4) Image 2
+       3) ONE picture
     */
     .content{
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr 0.55fr 0.55fr;
+      grid-template-columns: 1.2fr 0.9fr 0.7fr;
       gap: 2rem;
       align-items: start;
       margin-top: 2.5rem;
@@ -86,10 +84,6 @@
     }
 
     /* Subjects list styles */
-    .subjects{
-      padding: 2rem;
-    }
-
     .subjects ul{
       margin: 0;
       padding-left: 1.2rem;
@@ -101,7 +95,7 @@
       margin-bottom: 0.4rem;
     }
 
-    /* Make subject links look like the site */
+    /* ✅ Keep the improved clickable subject link style */
     .subjects a{
       color: var(--brand-2);
       text-decoration: none;
@@ -112,25 +106,20 @@
       text-decoration: underline;
     }
 
-    /* Image cards */
+    /* Image card (same crop style as before) */
     .img-card{
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
       border: 1px solid rgba(0,0,0,0.04);
-      padding: 10px; /* gives a nice frame when using contain */
     }
 
-    /* Keep original proportions (no cropping) */
     .img-card img{
       width: 100%;
-      height: auto;          /* preserve original ratio */
-      max-height: 520px;     /* optional: prevents huge images from taking over */
-      object-fit: contain;   /* never crop */
+      height: 520px;       /* crop height */
+      object-fit: cover;   /* keeps it looking nice */
       display: block;
-      border-radius: 12px;   /* soft inner corners */
-      background: #fff;
     }
 
     .actions{
@@ -175,7 +164,7 @@
         grid-template-columns: 1fr;
       }
       .img-card img{
-        max-height: 420px;
+        height: 320px;
       }
     }
 
@@ -242,10 +231,11 @@
         </p>
       </div>
 
-      <!-- IMAGE 1 (RIGHT SIDE) -->
+      <!-- ONE PICTURE -->
       <div class="img-card">
-        <img src="skole.PNG" alt="School image">
+        <img src="skole.PNG" alt="Picture">
       </div>
+    </section>
 
     <div class="actions">
       <a class="btn" href="https://vetledrage.github.io">⬅ Go back to main page</a>
