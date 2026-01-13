@@ -49,14 +49,6 @@
       letter-spacing: -0.5px;
     }
 
-    .subtitle{
-      margin: 0 auto;
-      max-width: 850px;
-      font-size: 1.15rem;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
-
     /* Layout:
        1) Big text
        2) Media column (image + video)
@@ -95,11 +87,18 @@
       margin-bottom: 0;
     }
 
-    /* Media column stack */
     .media{
       display: grid;
       gap: 1.25rem;
       align-items: start;
+    }
+
+    .media-label{
+      font-size: 0.95rem;
+      font-weight: 650;
+      color: var(--brand-1);
+      margin: 0 0 0.4rem 0.2rem;
+      letter-spacing: 0.2px;
     }
 
     .media-card{
@@ -110,7 +109,6 @@
       border: 1px solid rgba(0,0,0,0.04);
     }
 
-    /* Shared styling for image + video */
     .media-card img,
     .media-card video{
       width: 100%;
@@ -157,7 +155,6 @@
 
     footer a:hover{ color: #e4e4e4; }
 
-    /* Responsive */
     @media (max-width: 950px){
       .content{
         grid-template-columns: 1fr;
@@ -186,7 +183,6 @@
     </div>
 
     <section class="content">
-      <!-- BIG TEXT BOX -->
       <div class="textbox">
         <h2>Life outside school</h2>
 
@@ -216,20 +212,22 @@
         </p>
       </div>
 
-      <!-- IMAGE + VIDEO -->
       <div class="media">
-        <!-- Image -->
-        <div class="media-card">
-          <img src="hovedløpet.jpeg" alt="Hobby image 1">
+        <div>
+          <p class="media-label"> 3.plass i Hovedløpet 2016</p>
+          <div class="media-card">
+            <img src="hovedløpet.jpeg" alt="Hobby image 1">
+          </div>
         </div>
 
-        <!-- Video -->
-        <div class="media-card">
-          <!-- Put your video file in the repo and update the path below -->
-          <video controls preload="metadata">
-            <source src="DG.MOV" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <div>
+          <p class="media-label"> Discgolf på fritiden</p>
+          <div class="media-card">
+            <video controls preload="metadata">
+              <source src="DG.MOV" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
     </section>
